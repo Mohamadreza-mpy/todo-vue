@@ -1,27 +1,33 @@
 new Vue({
     el : '#app',
     data:{
-        items:[],
+        items:[
+
+
+        ],
         item:null,
     },
     methods:{
         addItems:function ()
         {
 
-            if(this.item.trim() == "")
+            if(this.item == null ||  this.item.trim() == "")
             {
                 alert('تسک را وارد کنید');
             }else
             {
 
-                if(this.items.includes(this.item))
-                {
-                    alert('تکراری هست')
-                }else
-                {
-                    this.items.push(this.item)
-                }
+
+                    this.items.push(
+                        {
+
+                            'name':this.item,
+                            'check': false,
+                        }
+                    )
+
                 this.item = ""
+
             }
 
         },
@@ -29,6 +35,18 @@ new Vue({
         {
 
             this.items.splice(index, 1)
+        },
+        checked:function (index)
+        {
+
+            if(this.items[index].check)
+            {
+                this.items[index].check = false
+            }else
+            {
+                this.items[index].check = true
+            }
+
         }
     },
 })

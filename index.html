@@ -34,12 +34,20 @@
             <tbody>
             <tr v-for="(item, index) in items">
                 <td>
-                    chek box
+                    <div class="form-check">
+                        <input class="form-check-input" @change="checked(index)" type="checkbox" value="" id="flexCheckDefault">
+
+                    </div>
                 </td>
-
-
                 <td>
-                    {{item}}
+                    <p v-if="item.check == false">
+                        {{item.name}}
+                    </p>
+                    <del v-else>
+                        {{item.name}}
+                    </del>
+
+
                 </td>
 
                 <td>
